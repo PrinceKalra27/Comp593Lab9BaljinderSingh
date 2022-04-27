@@ -19,9 +19,16 @@ def main():
     app_id = 'pokemon.image.viewer'
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
     root.iconbitmap(os.path.join(script_dir, 'Poke_Icon.ico'))
+    root.rowconfigure(0, weight=1)
+    root.columnconfigure(0, weight=1)
+    root.minsize(500, 600)
 
     frm = ttk.Frame(root)
     frm.grid(sticky=(N,S,E,W))
+    frm.rowconfigure(0, weight=10)
+    frm.rowconfigure(1, weight=1)
+    frm.rowconfigure(1, weight=1)
+    frm.columnconfigure(0, weight=1)
 
     img_poke = PhotoImage(file =os.path.join(script_dir, 'PokeImage.png'))
     lbl_img = ttk.Label(frm, image=img_poke)
@@ -41,15 +48,19 @@ def main():
         img_path = os.path.join(img_dir, spoke_name + '.png')
         download_image_from_url(img_url,img_path)
         img_poke['file'] = img_path
-        
-
+        btn_set_dsktp.state(['!disabled'])
 
     cbo_poke.bind('<<ComboboxSeleted>>', handle_poke_slct)
 
+    def handle_btn_set_bg():
+        spoke_name = cbo_poke.get()
+        img_path = os.path.join(img_dir, spoke_name + '.png')
+        set_desk_bg_img(img_path)
 
+    btn_set_dsktp = ttk.Button(frm, text= 'Set as Desktop Image', command=handle_btn_set_bg)
+    btn_set_dsktp.state(['disabled'])
+    btn_set_dsktp.grid(row=2,column=0,padx=10,pady=10)
 
     root.mainloop()
-
-
 
 main()
