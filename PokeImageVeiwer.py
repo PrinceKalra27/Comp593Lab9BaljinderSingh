@@ -32,7 +32,7 @@ def main():
     pokemon_list = [p.capitalize() for p in pokemon_list]
     cbo_poke = ttk.Combobox(frm, values=pokemon_list, state='readonly')
     cbo_poke.set('Select a Pokemon ;-)')
-    cbo_poke.grid(row=2, column=0, padx =10, pady=10)
+    cbo_poke.grid(row=1, column=0, padx =10, pady=10)
 
     
     def handle_poke_slct(event):

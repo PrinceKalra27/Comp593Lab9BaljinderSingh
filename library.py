@@ -3,6 +3,7 @@ import ctypes
 
 
 def set_desk_bg_img(img_path):
+    
     ctypes.windll.user32.SystemParametersInfoW(20, 0, img_path , 0)
 
 
