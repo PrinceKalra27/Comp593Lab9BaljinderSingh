@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from library import download_image_from_url
+from library import download_image_from_url , set_desk_bg_img
 from Pokeapi import Get_poke_list , get_poke_image
 import os
 import sys
@@ -10,7 +10,6 @@ import ctypes
 def main():
     
     script_dir = sys.path[0]
-
     img_dir = os.path.join(script_dir, 'images')
     if not os.path.isdir(img_dir):
         os.mkdir(img_dir)
@@ -35,12 +34,14 @@ def main():
     cbo_poke.set('Select a Pokemon ;-)')
     cbo_poke.grid(row=2, column=0, padx =10, pady=10)
 
-    cbo_poke.bind('<<ComboboxSeleted>>', )
-
+    
     def handle_poke_slct(event):
         spoke_name = cbo_poke.get()
         img_url = get_poke_image(spoke_name)
-        pass
+        img_path = os.path.join(img_dir, spoke_name + '.png')
+        download_image_from_url(img_url,img_path)
+        img_poke['file'] = img_path
+        
 
 
     cbo_poke.bind('<<ComboboxSeleted>>', handle_poke_slct)
