@@ -9,6 +9,13 @@ def set_desk_bg_img(img_path):
 
 
 def download_image_from_url(img_url, img_path):
+    """
+    Downloading a picture for the specified pokemon.
+
+    :param name1: Image URl
+    :param name2: Image Path 
+    :return: Getting url of the pokemon image and saving it on path; None if unsuccessful
+    """
 
     print('Downloading image from URL...', end=' ')
 

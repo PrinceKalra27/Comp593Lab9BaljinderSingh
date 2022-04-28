@@ -8,7 +8,13 @@ import ctypes
 
 
 def main():
-    
+    """
+    Getting main script ready for creating GUI for Pokemon.
+
+    :return: List of pokemon and GUI on screen if successful; None if unsuccessful
+    """
+
+
     script_dir = sys.path[0]
     img_dir = os.path.join(script_dir, 'images')
     if not os.path.isdir(img_dir):
@@ -43,6 +49,13 @@ def main():
 
     
     def handle_poke_slct(event):
+        """
+        Making handles for pokemon name in GUI to get Pokemon image.
+
+        :param name: Event
+        :return: Image of pokemon selected on GUI; None if unsuccessful
+        """
+
         spoke_name = cbo_poke.get()
         img_url = get_poke_image(spoke_name)
         img_path = os.path.join(img_dir, spoke_name + '.png')
@@ -53,6 +66,11 @@ def main():
     cbo_poke.bind('<<ComboboxSelected>>', handle_poke_slct)
 
     def handle_btn_set_bg():
+        """
+    Getting button to set desktop backgroung on GUI for Pokemon Selected.
+ 
+    :return: Set the poke image as background; None if unsuccessful
+    """
         spoke_name = cbo_poke.get()
         img_path = os.path.join(img_dir, spoke_name + '.png')
         set_desk_bg_img(img_path)

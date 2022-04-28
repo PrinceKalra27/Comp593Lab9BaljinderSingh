@@ -1,6 +1,12 @@
 import requests
 
 def get_poke_info(name):
+    """
+    Gets a dictionary of information from the PokeApi For a specified Pokemon.
+
+    :param name: Pokemon Name
+    :return: Dictionry of pokemon info ; none if unsuccessful
+    """
 
     if name is None:
         print('Invalid: Missing Parameter')
@@ -21,6 +27,12 @@ def get_poke_info(name):
         return
 
 def Get_poke_list(limit=200,offset=0):
+    """
+    Gets a list of al poke from the PokeApi.
+
+    :param name: limit , offset
+    :return: List of 200 Pokemons ; none if unsuccessful
+    """
     
     print("Getting list of Pokemon...",  end=' ' )
 
@@ -42,6 +54,12 @@ def Get_poke_list(limit=200,offset=0):
         print('Fail To Get Info. Response Code:', rpnse.status_code)
 
 def get_poke_image(name):
+    """
+    Gets a url for the image of pokemon from the PokeApi For a specified Pokemon.
+
+    :param name: Pokemon Name
+    :return: Image Url of pokemon ; none if unsuccessful
+    """
     poke_dict = get_poke_info(name)
 
     if poke_dict:
