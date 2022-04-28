@@ -67,10 +67,11 @@ def main():
 
     def handle_btn_set_bg():
         """
-    Getting button to set desktop backgroung on GUI for Pokemon Selected.
+        Getting button to set desktop backgroung on GUI for Pokemon Selected.
  
-    :return: Set the poke image as background; None if unsuccessful
-    """
+        :return: Set the poke image as background; None if unsuccessful
+        """
+        
         spoke_name = cbo_poke.get()
         img_path = os.path.join(img_dir, spoke_name + '.png')
         set_desk_bg_img(img_path)
