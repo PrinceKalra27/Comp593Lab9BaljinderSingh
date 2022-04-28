@@ -50,7 +50,7 @@ def main():
         img_poke['file'] = img_path
         btn_set_dsktp.state(['!disabled'])
 
-    cbo_poke.bind('<<ComboboxSeleted>>', handle_poke_slct)
+    cbo_poke.bind('<<ComboboxSelected>>', handle_poke_slct)
 
     def handle_btn_set_bg():
         spoke_name = cbo_poke.get()

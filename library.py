@@ -16,7 +16,7 @@ def download_image_from_url(img_url, img_path):
 
     if img_rpnse_msg.status_code ==200:
         print('Succesful To Get Poke Info')
-        with open('save_path', 'wb') as file:
+        with open(img_path, 'wb') as file:
             file.write(img_rpnse_msg.content)
         print('Succesful To Get Poke Info')
     else:
